@@ -12,7 +12,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.home-feature img{
 		width: 100%;
 	}

@@ -12,7 +12,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.nav-bar{
 		display: flex;/* 父容器设置flex弹性盒布局 */
 		height: 44px;
