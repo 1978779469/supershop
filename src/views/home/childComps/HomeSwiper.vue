@@ -2,7 +2,7 @@
 	<swiper class="home-swiper">
 		<swiper-item v-for="item in banners">
 			<a :href="item.link">
-				<img :src="item.image" :title="item.title" alt="" />
+				<img :src="item.image" :title="item.title" alt="" @load="swiperload"/>
 			</a>
 		</swiper-item>
 	</swiper>
@@ -23,12 +23,15 @@
 		components:{
 			Swiper,
 			SwiperItem
+		},
+		methods:{
+			swiperload() {
+				this.$emit('swiperload')
+			}
 		}
 	}
 </script>
 
 <style scoped>
-	.home-swiper{
-		margin-top: 44px;
-	}
+	
 </style>

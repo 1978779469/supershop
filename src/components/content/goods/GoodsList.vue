@@ -1,6 +1,6 @@
 <template>
 	<div class="goods-list">
-		<goods-item v-for='item in goods' :res='item'></goods-item>
+		<goods-item v-for='(item,index) in goods' :res='item' :key='index' ref="goodsitem" @imgload="imgload"></goods-item>
 	</div>
 </template>
 
@@ -16,8 +16,30 @@
 				}
 			}
 		},
+		data() {
+			return {
+				refresh: null
+			}
+		},
 		components: {
 			GoodsItem
+		},
+		mounted() {
+			
+		},
+		methods:{
+			debounce(func,delay) {
+				let timer = null
+				return function (...args) {
+				  if (timer) clearTimeout(timer)
+				  timer = setTimeout(() => {
+				    func.apply(this, args)
+				  }, delay)
+				}	
+			},
+			imgload(f) {
+				f()
+			}
 		}
 	}
 </script>

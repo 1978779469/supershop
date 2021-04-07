@@ -47,7 +47,4 @@
 		margin-top: 3px;
 		vertical-align: middle;
 	}
-	.active{
-		color: red;
-	}
 </style>

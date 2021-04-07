@@ -1,7 +1,7 @@
 <template>
 	<div class="tab-control">
 		<div class="tab-control-item" v-for="(item,index) in titles">
-			<span :class="{active: index === currentIndex}" @click="spanclick(index)">{{item}}</span>
+			<span :class="{active: index === currentIndex}" @click="spanClick(index)">{{item}}</span>
 		</div>
 	</div>
 </template>
@@ -23,15 +23,9 @@
 			}
 		},
 		methods:{
-			spanclick(index) {
-				if(index==0) {
-					this.$parent.type = 'pop'
-				}else if(index == 1) {
-					this.$parent.type = 'new'
-				}else{
-					this.$parent.type = 'sell'
-				}
-				this.currentIndex = index
+			spanClick(index) {
+				this.$emit('spanClick',index)
+				// this.currentIndex = index
 			}
 		}
 	}
@@ -42,10 +36,7 @@
 		display: flex;
 		text-align: center;
 		line-height: 40px;
-		position: sticky;
-		top: 44px;
 		background-color: #DCDCDC;
-		z-index: 1;
 	}
 	.tab-control-item{
 		flex: 1;
