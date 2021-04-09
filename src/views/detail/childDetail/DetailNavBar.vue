@@ -1,5 +1,5 @@
 <template>
-	<div id="detailitem">
+	<div id="detailnavbar">
 		<nav-bar>
 			<div slot="left" class="left" @click="back()">
 				<img alt="" src="~assets/img/common/back.svg" />
@@ -15,7 +15,7 @@
 <script>
 	import NavBar from 'components/common/navbar/NavBar.vue'
 	export default {
-		name: 'DetailItem',
+		name: 'DetailNavBar',
 		data() {
 			return {
 				titles: ['商品', '参数', '评论', '推荐'],

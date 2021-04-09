@@ -28,6 +28,7 @@
 		},
 		mounted() {
 				this.scroolnew()
+				
 		},
 		methods:{
 			scrollTo(x,y,time=500) {
