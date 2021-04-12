@@ -1,6 +1,6 @@
 <template>
 	<div class="goods-item" :key="index" @click="goodsClick">
-		<img :src="res.show.img" alt="" @load="imgLoad">
+		<img :src="showImg" alt="" @load="imgLoad">
 		<div class="goods-info">
 			<p>{{res.title}}</p>
 			<span class="price">{{res.price}}</span>
@@ -23,7 +23,12 @@
 				type: Number
 			}
 		},
-		mounted() {
+		computed:{
+			showImg() {
+				return this.res.image || this.res.show.img
+				
+				// return this.res.show.img || this.res.image
+			}
 		},
 		methods:{
 			imgLoad() { //每次加载完成一张图片就刷新一次scrollheight
@@ -31,7 +36,12 @@
 				this.$emit('imgload',() => {this.$parent.$parent.scroll.refresh()})
 			},
 			goodsClick() {
-				this.$router.push('/detail/' + this.res.iid)
+				if (this.res.shop_id){
+					this.$router.push('/detail/' + this.res.shop_id)
+				}else {
+					this.$router.push('/detail/' + this.res.iid)
+				}
+				
 			}
 		}
 	}

@@ -51,7 +51,7 @@
 				
 			},
 			finishPullUp() {
-				this.scroll.finishPullUp()
+				this.scroll.finishPullUp() //finishPullUp 解决了下拉加载更多只触发一次的问题
 			}
 		}
 	}

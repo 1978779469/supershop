@@ -8,6 +8,11 @@ export function getDetailData(id) {
 		}
 	})
 }
+export function getDatilRecommend() {
+	return request({
+		url:'/recommend'
+	})
+}
 
 //相当于export function Goods() {}
 //通过 const info = new Goods() 调用
@@ -32,5 +37,14 @@ export class Shop {
     this.sells = shopInfo.cSells;
     this.score = shopInfo.score;
     this.goodsCount = shopInfo.cGoods
+  }
+}
+
+export class GoodsParam {
+  constructor(info, rule) {
+    // 注: images可能没有值
+    this.image = info.images ? info.images[0] : '';
+    this.infos = info.set;
+    this.sizes = rule.tables;
   }
 }

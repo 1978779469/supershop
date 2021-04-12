@@ -28,6 +28,7 @@
 		methods: {
 			titClick(index) {
 				this.currentIndex = index
+				this.$emit('currentIndex',this.currentIndex)
 			},
 			back() {
 				this.$router.back()
